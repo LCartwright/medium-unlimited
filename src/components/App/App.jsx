@@ -1,8 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
 import styles from './App.css';
-import SpreadTheWord from '../SpreadTheWord/SpreadTheWord.jsx';
-import {track} from '../../analytics';
 
 class App extends React.Component {
   constructor(props) {
@@ -69,9 +67,6 @@ class App extends React.Component {
         <div
           className={classNames(styles.iconContainer)}
           onClick={() => {
-            if (!this.state.expanded) {
-              track('FLOATING_BUTTON_CLICKED');
-            }
             this.setState({expanded: !this.state.expanded});
           }}
         >
@@ -99,7 +94,6 @@ class App extends React.Component {
           [styles.hideBodyContent]: !this.state.expanded,
         })}
       >
-        <SpreadTheWord />
       </div>
     );
   };
